@@ -1,4 +1,5 @@
 const staticCacheName = 'site-static';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
   '/',
   '/index.html',
@@ -11,6 +12,18 @@ const assets = [
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ];
+
+
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then(cache => {
+    cache.keys().then(keys => {
+      if(keys.length > size){
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
 
 // install event
 self.addEventListener('install', function(e) {
