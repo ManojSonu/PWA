@@ -13,9 +13,9 @@
       "sizes": "1500x1500"
     },
     {
-      "src": "/img/icons/toys_96x96.jpg",
+      "src": "/img/icons/teddy.png",
       "type": "image/png",
-      "sizes": "1500x1500"
+      "sizes": "96x96"
     }
   ],
   "service_worker" : {
